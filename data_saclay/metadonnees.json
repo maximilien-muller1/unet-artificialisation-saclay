@@ -1,0 +1,64 @@
+{
+  "bbox": [
+    1.92,
+    48.55,
+    2.46,
+    48.88
+  ],
+  "crs": "EPSG:32631",
+  "resolution_m": 10,
+  "sentinel2": {
+    "2017": {
+      "date": "2017-06-18",
+      "part_invalide": 0.007993152171292166,
+      "processing_baseline": 2.12,
+      "items": [
+        "S2A_MSIL2A_20170618T105621_R094_T31UDQ_20210209T235442",
+        "S2A_MSIL2A_20170618T105621_R094_T31UDP_20210209T235434"
+      ]
+    },
+    "2021": {
+      "date": "2021-07-19",
+      "part_invalide": 0.006980445108866009,
+      "processing_baseline": 3.0,
+      "items": [
+        "S2B_MSIL2A_20210719T104619_R051_T31UDQ_20210719T201900",
+        "S2B_MSIL2A_20210719T104619_R051_T31UDP_20210719T205949"
+      ]
+    },
+    "2025": {
+      "date": "2025-07-01",
+      "part_invalide": 0.0013165191811540038,
+      "processing_baseline": 5.11,
+      "items": [
+        "S2B_MSIL2A_20250701T105619_R094_T31UDQ_20250701T132043",
+        "S2B_MSIL2A_20250701T105619_R094_T31UDP_20250701T132043"
+      ]
+    }
+  },
+  "worldcover": {
+    "items": [
+      "ESA_WorldCover_10m_2021_v200_N48E000"
+    ],
+    "classes": [
+      "Bâti",
+      "Forêt / arbres",
+      "Cultures",
+      "Prairies / autre",
+      "Eau"
+    ],
+    "correspondance": {
+      "50": 0,
+      "10": 1,
+      "95": 1,
+      "40": 2,
+      "20": 3,
+      "30": 3,
+      "60": 3,
+      "70": 3,
+      "90": 3,
+      "100": 3,
+      "80": 4
+    }
+  }
+}

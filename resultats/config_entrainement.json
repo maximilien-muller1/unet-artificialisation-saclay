@@ -1,0 +1,37 @@
+{
+  "image": "data_saclay/s2_2021.tif",
+  "labels": "data_saclay/labels_2021.tif",
+  "classes": [
+    "Bâti",
+    "Forêt / arbres",
+    "Cultures",
+    "Prairies / autre",
+    "Eau"
+  ],
+  "patch": 128,
+  "bloc": 512,
+  "stride_train": 64,
+  "parts": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "dropout": 0.1,
+  "base_filtres": 32,
+  "poids_classes": [
+    0.5268363162646451,
+    0.39866464517641204,
+    0.5973182656396848,
+    0.7719007115221582,
+    2.7052800613970995
+  ],
+  "epoques_effectuees": 10,
+  "duree_min": 12.6,
+  "n_patches": {
+    "train": 1666,
+    "val": 112,
+    "test": 128
+  }
+}

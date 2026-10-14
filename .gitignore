@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+data/
+Patch/
+*.tif
+*.tiff
+*.keras
+*.h5
+saved_model/
+.DS_Store
