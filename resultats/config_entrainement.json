@@ -27,8 +27,8 @@
     0.7719007115221582,
     2.7052800613970995
   ],
-  "epoques_effectuees": 10,
-  "duree_min": 12.6,
+  "epoques_effectuees": 55,
+  "duree_min": 108.0,
   "n_patches": {
     "train": 1666,
     "val": 112,
