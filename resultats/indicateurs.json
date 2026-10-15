@@ -1,0 +1,97 @@
+{
+  "parametres": {
+    "seuil_confiance": 0.7,
+    "surface_min_ha": 0.5,
+    "marge_nodata_px": 3
+  },
+  "flux": [
+    {
+      "periode": "2017-2021",
+      "duree_ans": 4,
+      "gains_bruts_ha": 3920.91,
+      "pertes_brutes_ha": 4461.6900000000005,
+      "gains_ha": 189.97,
+      "pertes_ha": 29.060000000000002,
+      "net_ha": 160.91,
+      "net_ha_par_an": 40.2275,
+      "taux_artificialisation": 0.003765165607852772,
+      "part_zone_valide": 0.9416205707856221
+    },
+    {
+      "periode": "2021-2025",
+      "duree_ans": 4,
+      "gains_bruts_ha": 7217.03,
+      "pertes_brutes_ha": 3479.09,
+      "gains_ha": 158.54,
+      "pertes_ha": 82.16,
+      "net_ha": 76.38,
+      "net_ha_par_an": 19.095,
+      "taux_artificialisation": 0.0016789813212778457,
+      "part_zone_valide": 0.9999871041684969
+    },
+    {
+      "periode": "2017-2025",
+      "duree_ans": 8,
+      "gains_bruts_ha": 5604.3,
+      "pertes_brutes_ha": 2671.38,
+      "gains_ha": 334.81,
+      "pertes_ha": 59.620000000000005,
+      "net_ha": 275.19,
+      "net_ha_par_an": 34.39875,
+      "taux_artificialisation": 0.00643893714367541,
+      "part_zone_valide": 0.9416334666171252
+    }
+  ],
+  "origine_artificialisation_2017_2025_ha": {
+    "Forêt / arbres": 156.15,
+    "Cultures": 77.07000000000001,
+    "Prairies / autre": 96.05,
+    "Eau": 5.54
+  },
+  "matrice_transition_2017_2025_ha": {
+    "classes": [
+      "Bâti",
+      "Forêt / arbres",
+      "Cultures",
+      "Prairies / autre",
+      "Eau"
+    ],
+    "valeurs": [
+      [
+        32308.7,
+        114.6,
+        27.1,
+        30.6,
+        29.3
+      ],
+      [
+        640.8,
+        44565.2,
+        31.2,
+        162.1,
+        33.4
+      ],
+      [
+        94.9,
+        28.1,
+        19432.7,
+        917.7,
+        67.0
+      ],
+      [
+        202.9,
+        224.7,
+        436.9,
+        3778.5,
+        25.1
+      ],
+      [
+        30.8,
+        40.3,
+        13.3,
+        8.7,
+        938.1
+      ]
+    ]
+  }
+}
