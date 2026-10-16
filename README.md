@@ -6,10 +6,10 @@ Projet réalisé dans le cadre du cours **« IA et changement climatique »** (E
 
 ## Démarche
 
-1. **Données** : images Sentinel-2 L2A (bleu, vert, rouge, proche infrarouge, 10 m) d'été 2017, 2021 et 2025, sélectionnées automatiquement pour minimiser les nuages sur la zone ; labels ESA WorldCover 2021 regroupés en 5 classes.
+1. **Données** : images Sentinel-2 L2A (bleu, vert, rouge, proche infrarouge, 10 m) du 18/07/2017, 19/07/2021 et 01/07/2025, choisies au plus près du 19 juillet avec moins de 5 % de nuages sur la zone (nuages masqués) ; labels ESA WorldCover 2021 regroupés en 5 classes.
 2. **Entraînement** : UNet entraîné sur l'image 2021 avec les labels WorldCover 2021.
 3. **Prédiction** : application du modèle aux images 2017 et 2025.
-4. **Indicateur** : carte des changements et taux d'artificialisation entre les deux dates.
+4. **Indicateur** : flux de pixels devenus bâtis, filtrés (confiance, surface minimale), avec analyse de sensibilité et validation par photo-interprétation.
 
 | Classe | Classes WorldCover d'origine |
 |---|---|
@@ -22,33 +22,48 @@ Projet réalisé dans le cadre du cours **« IA et changement climatique »** (E
 ## Choix méthodologiques
 
 - **Harmonisation radiométrique** : suppression du décalage de +1000 introduit par l'ESA en janvier 2022 (processing baseline 04.00), pour rendre 2025 comparable à 2017 et 2021.
-- **Même saison** pour les trois années (mi-juin à fin juillet), pour éviter de confondre champs moissonnés et surfaces artificialisées.
+- **Même stade de végétation** : dates choisies au plus près de la date d'entraînement (une image de juin 2017, aux céréales encore vertes, faussait toute la classification).
+- **Augmentation radiométrique** à l'entraînement (gain, décalage, gamma par bande), plus efficace qu'un appariement d'histogrammes des images.
 - **Normalisation globale** par percentiles 2–98 % calculés une fois sur l'image 2021 et réappliqués aux autres années.
 - **Découpage train / validation / test par blocs géographiques de 5 km**, pour éviter la fuite d'information entre patches voisins.
 - **Pondération des classes** et pixels sans donnée ignorés.
 - **Évaluation** par IoU par classe, F1 et matrice de confusion (l'accuracy seule est trompeuse avec des classes déséquilibrées).
 
-## Résultats actuels (entraînement court, 10 époques)
+## Résultats
 
-Évaluation sur le jeu de test (blocs géographiques jamais vus pendant l'entraînement) :
+**Modèle** (jeu de test, blocs géographiques jamais vus ; 55 époques, 1 h 48 sur Apple M4 Max) :
 
 | Classe | IoU | F1 | Précision | Rappel |
 |---|---|---|---|---|
-| Bâti | 0,81 | 0,89 | 0,86 | 0,92 |
-| Forêt / arbres | 0,80 | 0,89 | 0,92 | 0,86 |
-| Cultures | 0,82 | 0,90 | 0,88 | 0,92 |
-| Prairies / autre | 0,48 | 0,65 | 0,68 | 0,62 |
-| Eau | 0,67 | 0,80 | 0,68 | 0,97 |
+| Bâti | 0,80 | 0,89 | 0,86 | 0,93 |
+| Forêt / arbres | 0,81 | 0,89 | 0,91 | 0,88 |
+| Cultures | 0,83 | 0,91 | 0,93 | 0,89 |
+| Prairies / autre | 0,49 | 0,66 | 0,67 | 0,65 |
+| Eau | 0,69 | 0,82 | 0,72 | 0,95 |
 
-**mIoU : 0,72** — accuracy globale : 0,87. Entraînement de 12,6 min sur Apple M4 Max.
+**mIoU : 0,73** — accuracy globale : 0,87.
 
-![Matrice de confusion](resultats/matrice_confusion.png)
+**Artificialisation 2017 → 2025** (flux de pixels non bâti → bâti, confiance ≥ 0,7 aux deux dates, taches ≥ 0,5 ha) :
+
+| Période | Gains | Pertes (bruit) | Net | Net par an |
+|---|---|---|---|---|
+| 2017 → 2021 | 190 ha | 29 ha | 161 ha | 40 ha |
+| 2021 → 2025 | 159 ha | 82 ha | 76 ha | 19 ha |
+| **2017 → 2025** | **335 ha** | **60 ha** | **275 ha** | **34 ha** |
+
+- Précision des détections, estimée par photo-interprétation de 30 taches : **88 %** (IC 95 % : 75–100 %).
+- Origine des surfaces artificialisées : forêt / arbres 47 %, prairies 29 %, cultures 23 %.
+- Le total dépend fortement des seuils de filtrage (≈ 180 à 400 ha pour des réglages raisonnables) : c'est un ordre de grandeur.
+
+![Changements 2017-2025](resultats/carte_changements.png)
 
 ## Structure
 
 ```
 01_donnees_saclay.ipynb       Téléchargement et préparation (Microsoft Planetary Computer)
 02_entrainement_unet.ipynb    Entraînement et évaluation du UNet
+03_prediction.ipynb           Cartes d'occupation du sol 2017, 2021, 2025
+04_indicateurs.ipynb          Flux d'artificialisation, sensibilité, validation visuelle
 tutoriel/                     Tutoriel UNet du cours, adapté à Apple Silicon
 data_saclay/                  Métadonnées et aperçus (les rasters ne sont pas versionnés)
 resultats/                    Figures, métriques et configuration d'entraînement
