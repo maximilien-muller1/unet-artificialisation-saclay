@@ -1,0 +1,310 @@
+{
+  "precision": 0.88,
+  "ic95": [
+    0.7526150778153081,
+    1
+  ],
+  "gains_corriges_ha": 294.63280000000003,
+  "echantillon": [
+    {
+      "id": 0,
+      "surface_ha": 5.11,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3442,
+        2665
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 1,
+      "surface_ha": 3.19,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2442,
+        1222
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 2,
+      "surface_ha": 1.73,
+      "origine": "Cultures",
+      "centre_px": [
+        501,
+        276
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 3,
+      "surface_ha": 1.24,
+      "origine": "Prairies / autre",
+      "centre_px": [
+        3608,
+        47
+      ],
+      "verdict": "f"
+    },
+    {
+      "id": 4,
+      "surface_ha": 1.61,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2362,
+        3096
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 5,
+      "surface_ha": 0.85,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3743,
+        3160
+      ],
+      "verdict": "?"
+    },
+    {
+      "id": 6,
+      "surface_ha": 4.97,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2247,
+        2583
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 7,
+      "surface_ha": 9.61,
+      "origine": "Cultures",
+      "centre_px": [
+        3179,
+        2940
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 8,
+      "surface_ha": 0.96,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3194,
+        2382
+      ],
+      "verdict": "?"
+    },
+    {
+      "id": 9,
+      "surface_ha": 5.25,
+      "origine": "Cultures",
+      "centre_px": [
+        1954,
+        3263
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 10,
+      "surface_ha": 3.14,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        1599,
+        18
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 11,
+      "surface_ha": 1.07,
+      "origine": "Cultures",
+      "centre_px": [
+        1480,
+        3122
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 12,
+      "surface_ha": 2.9,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3994,
+        194
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 13,
+      "surface_ha": 1.75,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3919,
+        920
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 14,
+      "surface_ha": 13.46,
+      "origine": "Cultures",
+      "centre_px": [
+        2941,
+        3171
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 15,
+      "surface_ha": 0.99,
+      "origine": "Cultures",
+      "centre_px": [
+        2916,
+        2362
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 16,
+      "surface_ha": 5.32,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        926,
+        1308
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 17,
+      "surface_ha": 2.38,
+      "origine": "Prairies / autre",
+      "centre_px": [
+        2878,
+        1791
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 18,
+      "surface_ha": 1.6,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3523,
+        824
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 19,
+      "surface_ha": 0.8,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2604,
+        2781
+      ],
+      "verdict": "?"
+    },
+    {
+      "id": 20,
+      "surface_ha": 0.58,
+      "origine": "Prairies / autre",
+      "centre_px": [
+        1995,
+        2584
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 21,
+      "surface_ha": 2.73,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2822,
+        1678
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 22,
+      "surface_ha": 0.73,
+      "origine": "Prairies / autre",
+      "centre_px": [
+        3582,
+        3695
+      ],
+      "verdict": "?"
+    },
+    {
+      "id": 23,
+      "surface_ha": 0.61,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2825,
+        3586
+      ],
+      "verdict": "f"
+    },
+    {
+      "id": 24,
+      "surface_ha": 4.39,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2371,
+        2856
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 25,
+      "surface_ha": 0.59,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2147,
+        2683
+      ],
+      "verdict": "?"
+    },
+    {
+      "id": 26,
+      "surface_ha": 4.33,
+      "origine": "Cultures",
+      "centre_px": [
+        2639,
+        2657
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 27,
+      "surface_ha": 1.49,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        2691,
+        1613
+      ],
+      "verdict": "v"
+    },
+    {
+      "id": 28,
+      "surface_ha": 3.0100000000000002,
+      "origine": "Eau",
+      "centre_px": [
+        3631,
+        842
+      ],
+      "verdict": "f"
+    },
+    {
+      "id": 29,
+      "surface_ha": 1.45,
+      "origine": "Forêt / arbres",
+      "centre_px": [
+        3668,
+        2799
+      ],
+      "verdict": "v"
+    }
+  ]
+}
