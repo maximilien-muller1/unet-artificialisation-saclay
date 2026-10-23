@@ -10,6 +10,7 @@ Projet réalisé dans le cadre du cours **« IA et changement climatique »** (E
 2. **Entraînement** : UNet entraîné sur l'image 2021 avec les labels WorldCover 2021.
 3. **Prédiction** : application du modèle aux images 2017 et 2025.
 4. **Indicateur** : flux de pixels devenus bâtis, filtrés (confiance, surface minimale), avec analyse de sensibilité et validation par photo-interprétation.
+5. **Déclinaison territoriale** : ventilation par commune et intercommunalité, et comparaison avec la consommation d'espaces NAF mesurée par le Cerema (fichiers fonciers).
 
 | Classe | Classes WorldCover d'origine |
 |---|---|
@@ -57,15 +58,24 @@ Projet réalisé dans le cadre du cours **« IA et changement climatique »** (E
 
 ![Changements 2017-2025](resultats/carte_changements.png)
 
+**Par commune et comparaison avec le Cerema** (147 communes analysées sur au moins 90 % de leur surface) :
+
+- l'artificialisation est concentrée : 10 communes font 54 % du total, surtout au sud-est (Le Plessis-Pâté, Brétigny-sur-Orge, Marcoussis, Massy) ;
+- 243 ha mesurés contre 901 ha de consommation d'espaces NAF selon le Cerema (2017–2024), soit ≈ 27 % ; corrélation de rang de Spearman de 0,49 ;
+- bonne localisation (25 des 26 communes à plus de 10 ha selon le Cerema ont au moins une détection), forte sous-estimation des surfaces : le Cerema compte la parcelle entière et date le changement à l'achèvement des constructions, alors que le modèle détecte les surfaces d'apparence bâtie dès le chantier.
+
+![Artificialisation par commune](resultats/artificialisation_communes.png)
+
 ## Structure
 
 ```
 01_donnees_saclay.ipynb       Téléchargement et préparation (Microsoft Planetary Computer)
 02_entrainement_unet.ipynb    Entraînement et évaluation du UNet
 03_prediction.ipynb           Cartes d'occupation du sol 2017, 2021, 2025
-04_indicateurs.ipynb          Flux d'artificialisation, sensibilité, validation visuelle
+04_indicateurs.ipynb          Flux d'artificialisation, sensibilité, validation visuelle, analyse par commune
 tutoriel/                     Tutoriel UNet du cours, adapté à Apple Silicon
-data_saclay/                  Métadonnées et aperçus (les rasters ne sont pas versionnés)
+data_saclay/                  Métadonnées, aperçus, contours des communes (IGN Admin Express 2018)
+                              et extrait des données Cerema (les rasters ne sont pas versionnés)
 resultats/                    Figures, métriques et configuration d'entraînement
 ```
 
@@ -89,3 +99,10 @@ Puis exécuter les notebooks dans l'ordre. Les données sont téléchargées aut
 
 - Sentinel-2 L2A : Copernicus / ESA, via Microsoft Planetary Computer
 - ESA WorldCover 2021 v200 : Zanaga et al., 2022
+
+## Sources des données
+
+- Images Sentinel-2 L2A : programme Copernicus (ESA), via le Microsoft Planetary Computer.
+- Labels : ESA WorldCover 10 m 2021 v200 (Zanaga et al., 2022).
+- Contours communaux : IGN Admin Express COG, édition 2018, version simplifiée de [france-geojson](https://github.com/gregoiredavid/france-geojson).
+- Consommation d'espaces NAF : Cerema, [« Consommation d'espaces naturels, agricoles et forestiers du 1er janvier 2011 au 1er janvier 2025 »](https://www.data.gouv.fr/fr/datasets/6a01b9280dd2d45907e5fc61/) (extrait limité aux communes de la zone).
